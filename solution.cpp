@@ -1,13 +1,16 @@
+#include <deque>
 #include <vector>
 #include <algorithm>
 #include <iostream>
 #include <functional>
 
-template <typename T,const unsigned int n = 2,
-    typename compare = std::less<T>>
+template <typename T,
+    typename sequence = std::vector<T>,
+    unsigned const int n = 2,
+    typename compare = std::less<T>>   
 class heap {
 protected:
-    std::vector<T> elem;
+    sequence elem;
     compare cmp;
 
     inline void up(unsigned int x) {
@@ -49,6 +52,13 @@ public:
         }
     }
 
+    inline heap(const std::deque<T> &x) {
+        for(const auto &it : x) {
+            elem.emplace_back(it);
+            up(elem.size() - 1);
+        }
+    }
+
     inline void push(const T &x) {
         elem.emplace_back(x);
         up(elem.size() - 1);
@@ -60,24 +70,24 @@ public:
         down(0);
     }
 
-    inline constexpr T & top(){
+    inline const T & top() const {
         return elem[0];
     }
 
-    inline constexpr unsigned int size() const {
+    inline unsigned int size() {
         return elem.size();
     }
 
-    inline constexpr bool empty() const {
+    inline bool empty() {
         return elem.empty();
     }
 };
 
 int main() {
-    std::vector<int> v {9,8,7,6,5,4,3,2,1};
+    std::deque<int> v {9,8,7,6,5,4,3,2,1};
 
     // 4-Fork-Min-Heap
-    heap<int,4,std::greater<int>> hp(v);
+    heap<int,std::deque<int>,2,std::greater<int>> hp(v);
     std::cout << "hp.size() = " << hp.size() << "\n";
     std::cout << "hp.top() = " << hp.top() << "\n";
 
