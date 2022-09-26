@@ -87,7 +87,7 @@ int main() {
     std::deque<int> v {9,8,7,6,5,4,3,2,1};
 
     // 4-Fork-Min-Heap
-    heap<int,std::deque<int>,2,std::greater<int>> hp(v);
+    heap<int,std::deque<int>,4,std::greater<int>> hp(v);
     std::cout << "hp.size() = " << hp.size() << "\n";
     std::cout << "hp.top() = " << hp.top() << "\n";
 
