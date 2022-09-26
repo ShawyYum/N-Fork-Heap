@@ -74,11 +74,11 @@ public:
         return elem[0];
     }
 
-    inline unsigned int size() {
+    inline const unsigned int size() const {
         return elem.size();
     }
 
-    inline bool empty() {
+    inline const bool empty() const {
         return elem.empty();
     }
 };
