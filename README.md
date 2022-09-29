@@ -1,2 +1,2 @@
 # N-Fork-Heap
-N-fork MaxHeap or MinHeap with C++
+N-fork max/min heap with C++
