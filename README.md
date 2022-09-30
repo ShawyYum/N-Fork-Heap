@@ -1,2 +1,1 @@
-# N-Fork-Heap
-N-fork max/min heap with C++
+Only vector constructed N-fork MaxHeap or MinHeap
