@@ -5,11 +5,10 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
-#include <iostream>
 
-template <typename T,
+template <const unsigned int n,
+    typename T,
     typename sequence = std::vector<T>,
-    const unsigned int n = 2,
     typename compare = std::less<T>>   
 class heap {
 protected:
