@@ -1,1 +1,1 @@
-Only vector constructed N-fork MaxHeap or MinHeap
+N-fork max or min heap which is based on vector 
