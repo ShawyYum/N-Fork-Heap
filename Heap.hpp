@@ -10,7 +10,7 @@ template <const unsigned int n,
     typename T,
     typename sequence = std::vector<T>,
     typename compare = std::less<T>>   
-class heap {
+class Heap {
 protected:
     sequence elem;
     compare cmp;
@@ -45,23 +45,23 @@ protected:
     }
 
 public:
-    heap() {}
+    Heap() {}
 
-    heap(const std::vector<T> &x) {
+    Heap(const std::vector<T> &x) {
         for(const auto &it : x) {
             this->elem.emplace_back(it);
             this->up(this->elem.size() - 1);
         }
     }
 
-    heap(const std::deque<T> &x) {
+    Heap(const std::deque<T> &x) {
         for(const auto &it : x) {
             this->elem.emplace_back(it);
             this->up(this->elem.size() - 1);
         }
     }
 
-    heap(const T x[]) {
+    Heap(const T x[]) {
         for(const auto &it : x) {
             this->elem.emplace_back(it);
             this->up(this->elem.size() - 1);
@@ -69,14 +69,14 @@ public:
     }
 
     template<typename iter> 
-    heap(iter begin,const iter end) {
+    Heap(iter begin,const iter end) {
         for(;begin < end;begin++) {
             this->elem.emplace_back(*begin);
             this->up(this->elem.size() - 1);
         }
     }
 
-    ~heap() {}
+    ~Heap() {}
 
     void push(const T &x) {
         this->elem.emplace_back (x);
